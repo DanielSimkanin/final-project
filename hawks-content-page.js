@@ -4,7 +4,6 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
  * `hawks-content-page`
@@ -12,7 +11,7 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
  * @demo index.html
  * @element hawks-content-page
  */
-export class HawksContentPage extends DDDSuper(I18NMixin(LitElement)) {
+export class HawksContentPage extends DDDSuper(LitElement) {
 
   static get tag() {
     return "hawks-content-page";
@@ -21,17 +20,7 @@ export class HawksContentPage extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/hawks-content-page.ar.json", import.meta.url).href +
-        "/../",
-    });
+    
   }
 
   // Lit reactive properties
@@ -81,3 +70,4 @@ export class HawksContentPage extends DDDSuper(I18NMixin(LitElement)) {
 }
 
 globalThis.customElements.define(HawksContentPage.tag, HawksContentPage);
+
