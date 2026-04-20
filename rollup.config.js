@@ -24,9 +24,9 @@ export default {
     nodeResolve(),
     /** Minify JS, compile JS to a lower language target */
     esbuild({
-      minify: true,
-      target: ['chrome64', 'firefox67', 'safari11.1'],
-    }),
+  minify: true,
+  target: 'esnext',
+}),
     /** Bundle assets references via import.meta.url */
     importMetaAssets(),
     /** Minify html and css tagged template literals */
