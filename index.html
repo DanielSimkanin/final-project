@@ -12,8 +12,16 @@
       margin: var(--ddd-spacing-0);
       padding: var(--ddd-spacing-0);
       font-family: var(--ddd-font-navigation);
-      background-color: var(--ddd-theme-background);
-      color: var(--ddd-theme-primary);
+      background-color: #f4f4f4;
+      color: var(--ddd-theme-default-navy, #001e44);
+    }
+
+    /* Hawks brand tokens */
+    :root {
+      --hawks-navy: var(--ddd-theme-default-navy, #001e44);
+      --hawks-gold: var(--ddd-theme-default-keystoneYellow, #e2c044);
+      --hawks-white: var(--ddd-theme-default-white, #ffffff);
+      --hawks-gray: var(--ddd-theme-default-coalyGray, #3a3a3a);
     }
   </style>
   <title>Harrisburg Hawks</title>
@@ -22,7 +30,7 @@
 <body>
 
   <!-- 1. Site Header (nav, logo, menu) -->
-  <hawks-header title="Harrisburg Hawks"></hawks-header>
+  <hawks-header site-name="Harrisburg Hawks"></hawks-header>
 
   <!-- 2. Hero Banner -->
   <hawks-banner title="Welcome to the Harrisburg Hawks"></hawks-banner>

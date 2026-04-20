@@ -4,80 +4,172 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
-/**
- * `hawks-header`
- * 
- * @demo index.html
- * @element hawks-header
- */
-export class HawksHeader extends DDDSuper(I18NMixin(LitElement)) {
-
+export class HawksHeader extends DDDSuper(LitElement) {
   static get tag() {
     return "hawks-header";
   }
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/hawks-header.ar.json", import.meta.url).href +
-        "/../",
-    });
+    this.siteName = "Harrisburg Hawks";
+    this.menuOpen = false;
   }
 
-  // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      siteName: { type: String },
+      menuOpen: { type: Boolean, reflect: true },
     };
   }
 
-  // Lit scoped styles
   static get styles() {
-    return [super.styles,
-    css`
+    return [super.styles, css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        width: 100%;
+        background-color: var(--ddd-theme-default-navy, #001e44);
+        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
         font-family: var(--ddd-font-navigation);
       }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--ddd-spacing-3) var(--ddd-spacing-6);
+        max-width: 1200px;
+        margin: 0 auto;
       }
-      h3 span {
-        font-size: var(--hawks-header-label-font-size, var(--ddd-font-size-s));
+
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: var(--ddd-spacing-3);
+        text-decoration: none;
+        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+      }
+
+      .logo-icon {
+        font-size: 2rem;
+      }
+
+      .site-name {
+        font-size: var(--ddd-font-size-l);
+        font-weight: var(--ddd-font-weight-bold);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      nav {
+        display: flex;
+        gap: var(--ddd-spacing-4);
+        align-items: center;
+      }
+
+      nav a {
+        color: var(--ddd-theme-default-white, #fff);
+        text-decoration: none;
+        font-size: var(--ddd-font-size-s);
+        font-weight: var(--ddd-font-weight-bold);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: var(--ddd-spacing-1) var(--ddd-spacing-2);
+        border-radius: var(--ddd-radius-sm);
+        transition: background 0.2s;
+      }
+
+      nav a:hover {
+        background-color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+        color: var(--ddd-theme-default-navy, #001e44);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: 2px solid var(--ddd-theme-default-keystoneYellow, #e2c044);
+        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+        font-size: var(--ddd-font-size-m);
+        padding: var(--ddd-spacing-1) var(--ddd-spacing-3);
+        border-radius: var(--ddd-radius-sm);
+        cursor: pointer;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        background-color: var(--ddd-theme-default-navy, #001e44);
+        padding: var(--ddd-spacing-2) var(--ddd-spacing-6);
+      }
+
+      .mobile-menu a {
+        color: var(--ddd-theme-default-white, #fff);
+        text-decoration: none;
+        font-size: var(--ddd-font-size-s);
+        font-weight: var(--ddd-font-weight-bold);
+        text-transform: uppercase;
+        padding: var(--ddd-spacing-2) 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .mobile-menu a:hover {
+        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+      }
+
+      :host([menuopen]) .mobile-menu {
+        display: flex;
+      }
+
+      /* Gold accent bar at bottom of header */
+      .accent-bar {
+        height: 4px;
+        background-color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
       }
     `];
   }
 
-  // Lit render the HTML
+  _toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
   render() {
     return html`
-<div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
-</div>`;
-  }
-
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+      <div class="header-inner">
+        <a class="logo-area" href="/">
+          <span class="logo-icon">🦅</span>
+          <span class="site-name">${this.siteName}</span>
+        </a>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/schedule">Schedule</a>
+          <a href="/team">Team</a>
+          <a href="/news">News</a>
+          <a href="/about">About</a>
+        </nav>
+        <button class="menu-toggle" @click="${this._toggleMenu}">
+          ${this.menuOpen ? '✕' : '☰'}
+        </button>
+      </div>
+      <div class="mobile-menu">
+        <a href="/">Home</a>
+        <a href="/schedule">Schedule</a>
+        <a href="/team">Team</a>
+        <a href="/news">News</a>
+        <a href="/about">About</a>
+      </div>
+      <div class="accent-bar"></div>
+    `;
   }
 }
-
 globalThis.customElements.define(HawksHeader.tag, HawksHeader);
