@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "label": "Home", "href": "/", "id": "home" },
+    { "label": "Schedule", "href": "/schedule", "id": "schedule" },
+    { "label": "Team", "href": "/team", "id": "team" },
+    { "label": "News", "href": "/news", "id": "news" },
+    { "label": "About", "href": "/about", "id": "about" },
+    { "label": "Contact", "href": "/contact", "id": "contact" }
+  ]
+}
