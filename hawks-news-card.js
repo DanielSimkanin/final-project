@@ -32,127 +32,141 @@ export class HawksNewsCard extends DDDSuper(LitElement) {
   }
 
   static get styles() {
-    return [super.styles, css`
+  return [super.styles, css`
+    :host {
+      display: block;
+      width: 100%;
+      background-color: var(--ddd-theme-default-white);
+      padding: var(--ddd-spacing-10) var(--ddd-spacing-6);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--ddd-spacing-8);
+    }
+
+    .section-header h2 {
+      font-size: var(--ddd-font-size-xl);
+      font-weight: var(--ddd-font-weight-bold);
+      text-transform: uppercase;
+      color: var(--ddd-theme-default-navy);
+      margin: 0 0 var(--ddd-spacing-2) 0;
+    }
+
+    .gold-divider {
+      width: 60px;
+      height: 4px;
+      background-color: var(--ddd-theme-default-keystoneYellow);
+      margin: 0 auto;
+      border-radius: var(--ddd-radius-xs);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--ddd-spacing-6);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .news-card {
+      border-radius: var(--ddd-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--ddd-boxShadow-sm);
+      transition: transform 0.2s;
+      background-color: var(--ddd-theme-default-lightGray);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-image {
+      background-color: var(--ddd-theme-default-navy);
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .card-body {
+      padding: var(--ddd-spacing-4) var(--ddd-spacing-5);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--ddd-spacing-2);
+    }
+
+    .card-category {
+      font-size: var(--ddd-font-size-xs);
+      font-weight: var(--ddd-font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ddd-theme-default-keystoneYellow);
+      background-color: var(--ddd-theme-default-navy);
+      display: inline-block;
+      padding: var(--ddd-spacing-1) var(--ddd-spacing-2);
+      border-radius: var(--ddd-radius-sm);
+      width: fit-content;
+    }
+
+    .card-title {
+      font-size: var(--ddd-font-size-m);
+      font-weight: var(--ddd-font-weight-bold);
+      color: var(--ddd-theme-default-navy);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .card-date {
+      font-size: var(--ddd-font-size-xs);
+      color: var(--ddd-theme-default-coalyGray);
+    }
+
+    .card-summary {
+      font-size: var(--ddd-font-size-s);
+      color: var(--ddd-theme-default-coalyGray);
+      line-height: 1.6;
+      margin: 0;
+      flex: 1;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: var(--ddd-spacing-3);
+      color: var(--ddd-theme-default-navy);
+      font-weight: var(--ddd-font-weight-bold);
+      text-decoration: none;
+      font-size: var(--ddd-font-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid var(--ddd-theme-default-keystoneYellow);
+      padding-bottom: 2px;
+    }
+
+    .read-more:hover {
+      color: var(--ddd-theme-default-keystoneYellow);
+    }
+
+    @media (prefers-color-scheme: dark) {
       :host {
-        display: block;
-        width: 100%;
-        background-color: var(--ddd-theme-default-white, #ffffff);
-        padding: var(--ddd-spacing-10) var(--ddd-spacing-6);
+        background-color: var(--ddd-theme-default-nittanyNavy);
       }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: var(--ddd-spacing-8);
-      }
-
       .section-header h2 {
-        font-size: var(--ddd-font-size-xl);
-        font-weight: var(--ddd-font-weight-bold);
-        text-transform: uppercase;
-        color: var(--ddd-theme-default-navy, #001e44);
-        margin: 0 0 var(--ddd-spacing-2) 0;
+        color: var(--ddd-theme-default-white);
       }
-
-      .gold-divider {
-        width: 60px;
-        height: 4px;
-        background-color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-        margin: 0 auto;
-        border-radius: 2px;
-      }
-
-      .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: var(--ddd-spacing-6);
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
       .news-card {
-        border-radius: var(--ddd-radius-lg);
-        overflow: hidden;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        transition: transform 0.2s, box-shadow 0.2s;
-        background-color: #f9f9f9;
-        display: flex;
-        flex-direction: column;
+        background-color: var(--ddd-theme-default-navy);
       }
-
-      .news-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      }
-
-      .card-image {
-        background-color: var(--ddd-theme-default-navy, #001e44);
-        height: 160px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 4rem;
-      }
-
-      .card-body {
-        padding: var(--ddd-spacing-4) var(--ddd-spacing-5);
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: var(--ddd-spacing-2);
-      }
-
-      .card-category {
-        font-size: var(--ddd-font-size-xs);
-        font-weight: var(--ddd-font-weight-bold);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-        background-color: var(--ddd-theme-default-navy, #001e44);
-        display: inline-block;
-        padding: var(--ddd-spacing-1) var(--ddd-spacing-2);
-        border-radius: var(--ddd-radius-sm);
-        width: fit-content;
-      }
-
       .card-title {
-        font-size: var(--ddd-font-size-m);
-        font-weight: var(--ddd-font-weight-bold);
-        color: var(--ddd-theme-default-navy, #001e44);
-        margin: 0;
-        line-height: 1.3;
+        color: var(--ddd-theme-default-white);
       }
-
-      .card-date {
-        font-size: var(--ddd-font-size-xs);
-        color: #888;
-      }
-
-      .card-summary {
-        font-size: var(--ddd-font-size-s);
-        color: var(--ddd-theme-default-coalyGray, #3a3a3a);
-        line-height: 1.6;
-        margin: 0;
-        flex: 1;
-      }
-
-      .read-more {
-        display: inline-block;
-        margin-top: var(--ddd-spacing-3);
-        color: var(--ddd-theme-default-navy, #001e44);
-        font-weight: var(--ddd-font-weight-bold);
-        text-decoration: none;
-        font-size: var(--ddd-font-size-xs);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-bottom: 2px solid var(--ddd-theme-default-keystoneYellow, #e2c044);
-        padding-bottom: 2px;
-      }
-
-      .read-more:hover {
-        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-      }
-    `];
-  }
+    }
+  `];
+}
 
   render() {
     return html`

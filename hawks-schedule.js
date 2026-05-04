@@ -47,115 +47,129 @@ export class HawksSchedule extends DDDSuper(LitElement) {
   }
 
   static get styles() {
-    return [super.styles, css`
+  return [super.styles, css`
+    :host {
+      display: block;
+      width: 100%;
+      background-color: var(--ddd-theme-default-lightGray);
+      padding: var(--ddd-spacing-8) var(--ddd-spacing-6);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--ddd-spacing-6);
+    }
+
+    .section-header h2 {
+      font-size: var(--ddd-font-size-xl);
+      font-weight: var(--ddd-font-weight-bold);
+      text-transform: uppercase;
+      color: var(--ddd-theme-default-navy);
+      margin: 0 0 var(--ddd-spacing-2) 0;
+    }
+
+    .gold-divider {
+      width: 60px;
+      height: 4px;
+      background-color: var(--ddd-theme-default-keystoneYellow);
+      margin: 0 auto;
+      border-radius: var(--ddd-radius-xs);
+    }
+
+    .games-strip {
+      display: flex;
+      gap: var(--ddd-spacing-4);
+      overflow-x: auto;
+      padding-bottom: var(--ddd-spacing-4);
+      max-width: 1200px;
+      margin: 0 auto;
+      scrollbar-width: thin;
+    }
+
+    .game-card {
+      background-color: var(--ddd-theme-default-white);
+      border-radius: var(--ddd-radius-lg);
+      padding: var(--ddd-spacing-4) var(--ddd-spacing-5);
+      min-width: 200px;
+      flex-shrink: 0;
+      border-top: var(--ddd-spacing-1) solid var(--ddd-theme-default-navy);
+      box-shadow: var(--ddd-boxShadow-sm);
+      transition: transform 0.2s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .game-date {
+      font-size: var(--ddd-font-size-xs);
+      font-weight: var(--ddd-font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ddd-theme-default-keystoneYellow);
+      background-color: var(--ddd-theme-default-navy);
+      padding: var(--ddd-spacing-1) var(--ddd-spacing-2);
+      border-radius: var(--ddd-radius-sm);
+      display: inline-block;
+      margin-bottom: var(--ddd-spacing-3);
+    }
+
+    .game-opponent {
+      font-size: var(--ddd-font-size-m);
+      font-weight: var(--ddd-font-weight-bold);
+      color: var(--ddd-theme-default-navy);
+      margin: 0 0 var(--ddd-spacing-2) 0;
+    }
+
+    .game-meta {
+      font-size: var(--ddd-font-size-xs);
+      color: var(--ddd-theme-default-coalyGray);
+      margin: var(--ddd-spacing-1) 0;
+    }
+
+    .home-badge {
+      display: inline-block;
+      margin-top: var(--ddd-spacing-2);
+      font-size: var(--ddd-font-size-xs);
+      font-weight: var(--ddd-font-weight-bold);
+      padding: var(--ddd-spacing-1) var(--ddd-spacing-2);
+      border-radius: var(--ddd-radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .home-badge.home {
+      background-color: var(--ddd-theme-default-keystoneYellow);
+      color: var(--ddd-theme-default-navy);
+    }
+
+    .home-badge.away {
+      background-color: var(--ddd-theme-default-lightGray);
+      color: var(--ddd-theme-default-coalyGray);
+    }
+
+    .loading {
+      text-align: center;
+      color: var(--ddd-theme-default-navy);
+      padding: var(--ddd-spacing-8);
+    }
+
+    @media (prefers-color-scheme: dark) {
       :host {
-        display: block;
-        width: 100%;
-        background-color: #f0f0f0;
-        padding: var(--ddd-spacing-8) var(--ddd-spacing-6);
+        background-color: var(--ddd-theme-default-nittanyNavy);
       }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: var(--ddd-spacing-6);
-      }
-
       .section-header h2 {
-        font-size: var(--ddd-font-size-xl);
-        font-weight: var(--ddd-font-weight-bold);
-        text-transform: uppercase;
-        color: var(--ddd-theme-default-navy, #001e44);
-        margin: 0 0 var(--ddd-spacing-2) 0;
+        color: var(--ddd-theme-default-white);
       }
-
-      .gold-divider {
-        width: 60px;
-        height: 4px;
-        background-color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-        margin: 0 auto;
-        border-radius: 2px;
-      }
-
-      .games-strip {
-        display: flex;
-        gap: var(--ddd-spacing-4);
-        overflow-x: auto;
-        padding-bottom: var(--ddd-spacing-4);
-        max-width: 1200px;
-        margin: 0 auto;
-        scrollbar-width: thin;
-      }
-
       .game-card {
-        background-color: var(--ddd-theme-default-white, #ffffff);
-        border-radius: var(--ddd-radius-lg);
-        padding: var(--ddd-spacing-4) var(--ddd-spacing-5);
-        min-width: 200px;
-        flex-shrink: 0;
-        border-top: 4px solid var(--ddd-theme-default-navy, #001e44);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        transition: transform 0.2s, box-shadow 0.2s;
+        background-color: var(--ddd-theme-default-navy);
       }
-
-      .game-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      }
-
-      .game-date {
-        font-size: var(--ddd-font-size-xs);
-        font-weight: var(--ddd-font-weight-bold);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-        background-color: var(--ddd-theme-default-navy, #001e44);
-        padding: var(--ddd-spacing-1) var(--ddd-spacing-2);
-        border-radius: var(--ddd-radius-sm);
-        display: inline-block;
-        margin-bottom: var(--ddd-spacing-3);
-      }
-
       .game-opponent {
-        font-size: var(--ddd-font-size-m);
-        font-weight: var(--ddd-font-weight-bold);
-        color: var(--ddd-theme-default-navy, #001e44);
-        margin: 0 0 var(--ddd-spacing-2) 0;
+        color: var(--ddd-theme-default-white);
       }
-
-      .game-meta {
-        font-size: var(--ddd-font-size-xs);
-        color: var(--ddd-theme-default-coalyGray, #3a3a3a);
-        margin: var(--ddd-spacing-1) 0;
-      }
-
-      .home-badge {
-        display: inline-block;
-        margin-top: var(--ddd-spacing-2);
-        font-size: var(--ddd-font-size-xs);
-        font-weight: var(--ddd-font-weight-bold);
-        padding: var(--ddd-spacing-1) var(--ddd-spacing-2);
-        border-radius: var(--ddd-radius-sm);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .home-badge.home {
-        background-color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-        color: var(--ddd-theme-default-navy, #001e44);
-      }
-
-      .home-badge.away {
-        background-color: #e0e0e0;
-        color: var(--ddd-theme-default-coalyGray, #3a3a3a);
-      }
-
-      .loading {
-        text-align: center;
-        color: var(--ddd-theme-default-navy, #001e44);
-        padding: var(--ddd-spacing-8);
-      }
-    `];
-  }
+    }
+  `];
+}
 
   render() {
     return html`
