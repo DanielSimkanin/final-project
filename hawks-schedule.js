@@ -154,18 +154,30 @@ export class HawksSchedule extends DDDSuper(LitElement) {
       padding: var(--ddd-spacing-8);
     }
 
-    :host-context(body.dark) {
+    @media (prefers-color-scheme: dark) {
       :host {
-        background-color: var(--ddd-theme-default-white);
-      }
-      .section-header h2 {
-        color: var(--ddd-theme-default-nittanyNavy);
-      }
-      .game-card {
         background-color: var(--ddd-theme-default-navy);
       }
-      .game-opponent {
+      .section-header h2 {
+        color: var(--ddd-theme-default-white);
+      }
+      .game-card {
+        background-color: var(--ddd-theme-default-white);
+      }
+      .game-opponent,
+      .game-meta {
         color: var(--ddd-theme-default-nittanyNavy);
+      }
+      .home-badge {
+        color: var(--ddd-theme-default-navy);
+      }
+      .home-badge.home {
+        background-color: var(--ddd-theme-default-keystoneYellow);
+        color: var(--ddd-theme-default-navy);
+      }
+      .home-badge.away {
+        background-color: var(--ddd-theme-default-lightGray);
+        color: var(--ddd-theme-default-coalyGray);
       }
     }
   `];

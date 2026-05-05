@@ -151,18 +151,31 @@ export class HawksNewsCard extends DDDSuper(LitElement) {
       color: var(--ddd-theme-default-keystoneYellow);
     }
 
-    :host-context(body.dark) {
+    @media (prefers-color-scheme: dark) {
       :host {
-        background-color: var(--ddd-theme-default-white);
-      }
-      .section-header h2 {
-        color: var(--ddd-theme-default-nittanyNavy);
-      }
-      .news-card {
         background-color: var(--ddd-theme-default-navy);
       }
-      .card-title {
+      .section-header h2 {
+        color: var(--ddd-theme-default-white);
+      }
+      .news-card {
+        background-color: var(--ddd-theme-default-white);
+      }
+      .card-image {
+        background-color: var(--ddd-theme-default-white);
+      }
+      .card-body,
+      .card-title,
+      .card-date,
+      .card-summary,
+      .read-more {
         color: var(--ddd-theme-default-nittanyNavy);
+      }
+      .read-more {
+        border-bottom-color: var(--ddd-theme-default-nittanyNavy);
+      }
+      .card-category {
+        color: var(--ddd-theme-default-keystoneYellow);
       }
     }
   `];
