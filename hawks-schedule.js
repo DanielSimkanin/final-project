@@ -31,7 +31,7 @@ export class HawksSchedule extends DDDSuper(LitElement) {
 
   async fetchSchedule() {
   try {
-    const res = await fetch("./api/schedule.json");
+    const res = await fetch("/api/schedule.json");
     const data = await res.json();
     this.games = data.games;
   } catch (e) {
