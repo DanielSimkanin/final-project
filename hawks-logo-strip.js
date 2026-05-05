@@ -86,7 +86,7 @@ export class HawksLogoStrip extends DDDSuper(LitElement) {
         letter-spacing: 1px;
       }
 
-      :host-context(body.dark) {
+      @media (prefers-color-scheme: dark) {
         :host {
           background-color: var(--ddd-theme-default-nittanyNavy);
         }

@@ -17,15 +17,19 @@
       color: var(--ddd-theme-default-navy, #001e44);
     }
 
-    body.dark {
-      background-color: #081426;
-      color: var(--ddd-theme-default-white, #ffffff);
-      --ddd-theme-default-white: #ffffff;
-      --ddd-theme-default-navy: #001e44;
-      --ddd-theme-default-keystoneYellow: #e2c044;
-      --ddd-theme-default-coalyGray: #3a3a3a;
-      --ddd-theme-default-lightGray: #f4f4f4;
-      --ddd-theme-default-nittanyNavy: #081426;
+    @media (prefers-color-scheme: dark) {
+      :root, html, body {
+        background-color: #081426;
+        color: var(--ddd-theme-default-white, #ffffff);
+      }
+      :root {
+        --ddd-theme-default-white: #ffffff;
+        --ddd-theme-default-navy: #001e44;
+        --ddd-theme-default-keystoneYellow: #e2c044;
+        --ddd-theme-default-coalyGray: #3a3a3a;
+        --ddd-theme-default-lightGray: #f4f4f4;
+        --ddd-theme-default-nittanyNavy: #081426;
+      }
     }
 
     /* Hawks brand tokens */

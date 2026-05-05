@@ -101,7 +101,7 @@ export class HawksLinkCard extends DDDSuper(LitElement) {
         color: var(--ddd-theme-default-coalyGray);
       }
 
-      :host-context(body.dark) {
+      @media (prefers-color-scheme: dark) {
         .link-card {
           background-color: var(--ddd-theme-default-white);
         }

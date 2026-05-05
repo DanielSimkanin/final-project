@@ -93,24 +93,25 @@ export class HawksFooter extends DDDSuper(LitElement) {
         opacity: 0.6;
       }
 
-      :host-context(body.dark) {
+      @media (prefers-color-scheme: dark) {
         :host {
-          color: var(--ddd-theme-default-white, #ffffff);
+          background-color: #001e44;
+          color: #ffffff;
         }
 
         .footer-brand p,
         .footer-col ul li a,
         .footer-bottom {
-          color: var(--ddd-theme-default-white, #ffffff);
+          color: #ffffff;
           opacity: 0.8;
         }
 
         .footer-col h4 {
-          color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+          color: #e2c044;
         }
 
         .footer-col ul li a:hover {
-          color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+          color: #e2c044;
           opacity: 1;
         }
 
