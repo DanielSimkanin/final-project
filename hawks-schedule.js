@@ -154,7 +154,7 @@ export class HawksSchedule extends DDDSuper(LitElement) {
       padding: var(--ddd-spacing-8);
     }
 
-    @media (prefers-color-scheme: dark) {
+    :host-context(body.dark) {
       :host {
         background-color: var(--ddd-theme-default-white);
       }

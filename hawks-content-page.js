@@ -107,7 +107,7 @@ export class HawksContentPage extends DDDSuper(LitElement) {
         }
       }
 
-      @media (prefers-color-scheme: dark) {
+      :host-context(body.dark) {
         :host {
           background-color: var(--ddd-theme-default-nittanyNavy);
         }

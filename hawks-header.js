@@ -14,6 +14,8 @@ export class HawksHeader extends DDDSuper(LitElement) {
     super();
     this.siteName = "Harrisburg Hawks";
     this.menuOpen = false;
+    this.darkMode = localStorage.getItem('darkMode') === 'true';
+    this._applyDarkMode();
   }
 
   static get properties() {
@@ -21,6 +23,7 @@ export class HawksHeader extends DDDSuper(LitElement) {
       ...super.properties,
       siteName: { type: String },
       menuOpen: { type: Boolean, reflect: true },
+      darkMode: { type: Boolean, reflect: true },
     };
   }
 
@@ -96,6 +99,22 @@ export class HawksHeader extends DDDSuper(LitElement) {
         cursor: pointer;
       }
 
+      .theme-toggle {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: var(--ddd-font-size-m);
+        cursor: pointer;
+        padding: var(--ddd-spacing-1);
+        border-radius: var(--ddd-radius-sm);
+        transition: background 0.2s;
+      }
+
+      .theme-toggle:hover {
+        background-color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+        color: #001e44;
+      }
+
       .mobile-menu {
         display: none;
         flex-direction: column;
@@ -114,6 +133,22 @@ export class HawksHeader extends DDDSuper(LitElement) {
       }
 
       .mobile-menu a:hover {
+        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+      }
+
+      .theme-toggle-mobile {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: var(--ddd-font-size-s);
+        font-weight: var(--ddd-font-weight-bold);
+        text-transform: uppercase;
+        padding: var(--ddd-spacing-2) 0;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .theme-toggle-mobile:hover {
         color: var(--ddd-theme-default-keystoneYellow, #e2c044);
       }
 
@@ -143,6 +178,20 @@ export class HawksHeader extends DDDSuper(LitElement) {
     this.menuOpen = !this.menuOpen;
   }
 
+  _toggleDarkMode() {
+    this.darkMode = !this.darkMode;
+    localStorage.setItem('darkMode', this.darkMode);
+    this._applyDarkMode();
+  }
+
+  _applyDarkMode() {
+    if (this.darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }
+
   render() {
     return html`
       <div class="header-inner">
@@ -156,6 +205,9 @@ export class HawksHeader extends DDDSuper(LitElement) {
           <a href="/team">Team</a>
           <a href="/news">News</a>
           <a href="/about">About</a>
+          <button class="theme-toggle" @click="${this._toggleDarkMode}" title="Toggle Dark Mode">
+            ${this.darkMode ? '☀️' : '🌙'}
+          </button>
         </nav>
         <button class="menu-toggle" @click="${this._toggleMenu}">
           ${this.menuOpen ? '✕' : '☰'}
@@ -167,6 +219,9 @@ export class HawksHeader extends DDDSuper(LitElement) {
         <a href="/team">Team</a>
         <a href="/news">News</a>
         <a href="/about">About</a>
+        <button class="theme-toggle-mobile" @click="${this._toggleDarkMode}" title="Toggle Dark Mode">
+          ${this.darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+        </button>
       </div>
       <div class="accent-bar"></div>
     `;

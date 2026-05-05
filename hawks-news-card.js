@@ -151,7 +151,7 @@ export class HawksNewsCard extends DDDSuper(LitElement) {
       color: var(--ddd-theme-default-keystoneYellow);
     }
 
-    @media (prefers-color-scheme: dark) {
+    :host-context(body.dark) {
       :host {
         background-color: var(--ddd-theme-default-white);
       }

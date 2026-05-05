@@ -129,7 +129,7 @@ export class HawksTeamCard extends DDDSuper(LitElement) {
       letter-spacing: 1px;
     }
 
-    @media (prefers-color-scheme: dark) {
+    :host-context(body.dark) {
       :host {
         background-color: var(--ddd-theme-default-nittanyNavy);
       }
