@@ -30,16 +30,16 @@ export class HawksSchedule extends DDDSuper(LitElement) {
   }
 
   async fetchSchedule() {
-    try {
-      const res = await fetch("/api/schedule.json");
-      const data = await res.json();
-      this.games = data.games;
-    } catch (e) {
-      console.error("Failed to load schedule", e);
-    } finally {
-      this.loading = false;
-    }
+  try {
+    const res = await fetch("./api/schedule.json");
+    const data = await res.json();
+    this.games = data.games;
+  } catch (e) {
+    console.error("Failed to load schedule", e);
+  } finally {
+    this.loading = false;
   }
+}
 
   formatDate(dateStr) {
     const date = new Date(dateStr + "T00:00:00");

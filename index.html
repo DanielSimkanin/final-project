@@ -29,37 +29,12 @@
 
 <body>
 
-  <!-- 1. Site Header (nav, logo, menu) -->
   <hawks-header site-name="Harrisburg Hawks"></hawks-header>
 
-  <!-- 2. Hero Banner -->
-  <hawks-banner title="Welcome to the Harrisburg Hawks"></hawks-banner>
+  <div id="app-content"></div>
 
-  <!-- 3. Stat Counter band -->
-  <hawks-stat-counter title="Team Stats"></hawks-stat-counter>
-
-  <!-- 4. Upcoming Schedule band -->
-  <hawks-schedule title="Upcoming Games"></hawks-schedule>
-
-  <!-- 5. News Cards band -->
-  <hawks-news-card title="Latest News"></hawks-news-card>
-
-  <!-- 6. Link Cards band -->
-  <hawks-link-card title="Quick Links"></hawks-link-card>
-
-  <!-- 7. Team Cards band -->
-  <hawks-team-card title="Meet the Team"></hawks-team-card>
-
-  <!-- 8. Content Page band -->
-  <hawks-content-page title="About the Hawks"></hawks-content-page>
-
-  <!-- 9. Stakeholders Logo Strip -->
-  <hawks-logo-strip title="Our Sponsors"></hawks-logo-strip>
-
-  <!-- 10. Site Footer -->
   <hawks-footer title="Harrisburg Hawks"></hawks-footer>
 
-  <!-- Component imports -->
   <script type="module" src="./hawks-header.js"></script>
   <script type="module" src="./hawks-banner.js"></script>
   <script type="module" src="./hawks-stat-counter.js"></script>
@@ -71,5 +46,68 @@
   <script type="module" src="./hawks-logo-strip.js"></script>
   <script type="module" src="./hawks-footer.js"></script>
 
+  <script type="module">
+    function getPage() {
+      const path = window.location.pathname;
+      if (path === '/schedule') return 'schedule';
+      if (path === '/team') return 'team';
+      if (path === '/news') return 'news';
+      if (path === '/about') return 'about';
+      return 'home';
+    }
+
+    function renderPage() {
+      const page = getPage();
+      const app = document.getElementById('app-content');
+
+      if (page === 'home') {
+        app.innerHTML = `
+          <hawks-banner></hawks-banner>
+          <hawks-stat-counter></hawks-stat-counter>
+          <hawks-schedule></hawks-schedule>
+          <hawks-news-card></hawks-news-card>
+          <hawks-link-card></hawks-link-card>
+          <hawks-team-card></hawks-team-card>
+          <hawks-content-page></hawks-content-page>
+          <hawks-logo-strip></hawks-logo-strip>
+        `;
+      } else if (page === 'schedule') {
+        app.innerHTML = `
+          <hawks-schedule></hawks-schedule>
+        `;
+      } else if (page === 'team') {
+        app.innerHTML = `
+          <hawks-team-card></hawks-team-card>
+        `;
+      } else if (page === 'news') {
+        app.innerHTML = `
+          <hawks-news-card></hawks-news-card>
+        `;
+      } else if (page === 'about') {
+        app.innerHTML = `
+          <hawks-content-page></hawks-content-page>
+          <hawks-logo-strip></hawks-logo-strip>
+        `;
+      }
+    }
+
+    // Handle nav clicks without full page reload
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('/') && !href.startsWith('//')) {
+        e.preventDefault();
+        window.history.pushState({}, '', href);
+        renderPage();
+      }
+    });
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', renderPage);
+
+    // Initial render
+    renderPage();
+  </script>
+
 </body>
-</html>
