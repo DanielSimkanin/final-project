@@ -1,0 +1,11 @@
+{
+  "games": [
+    { "id": 1, "date": "2026-05-03", "time": "10:00 AM", "opponent": "Trenton Thunder", "location": "Riverside Field", "home": true },
+    { "id": 2, "date": "2026-05-10", "time": "1:00 PM", "opponent": "Albany Eagles", "location": "Empire State Complex", "home": false },
+    { "id": 3, "date": "2026-05-17", "time": "11:00 AM", "opponent": "Dover Destroyers", "location": "Riverside Field", "home": true },
+    { "id": 4, "date": "2026-05-24", "time": "2:00 PM", "opponent": "Annapolis Admirals", "location": "Chesapeake Fields", "home": false },
+    { "id": 5, "date": "2026-06-07", "time": "10:00 AM", "opponent": "Richmond Raptors", "location": "Riverside Field", "home": true },
+    { "id": 6, "date": "2026-06-14", "time": "1:00 PM", "opponent": "Columbus Charge", "location": "Buckeye Arena", "home": false },
+    { "id": 7, "date": "2026-06-21", "time": "11:00 AM", "opponent": "Augusta Aces", "location": "Riverside Field", "home": true }
+  ]
+}
