@@ -32,7 +32,7 @@ export class HawksLinkCard extends DDDSuper(LitElement) {
       :host {
         display: block;
         width: 100%;
-        background-color: var(--ddd-theme-default-navy);
+        background-color: #001e44;
         padding: var(--ddd-spacing-10) var(--ddd-spacing-6);
       }
 

@@ -28,56 +28,58 @@ export class HawksStatCounter extends DDDSuper(LitElement) {
   }
 
   static get styles() {
-    return [super.styles, css`
-      :host {
-        display: block;
-        width: 100%;
-        background-color: var(--ddd-theme-default-navy, #001e44);
-        padding: var(--ddd-spacing-8) var(--ddd-spacing-6);
-      }
+  return [super.styles, css`
+    :host {
+      display: block;
+      width: 100%;
+      background-color: #001e44;
+      padding: var(--ddd-spacing-8) var(--ddd-spacing-6);
+    }
 
-      .stats-grid {
-        display: flex;
-        justify-content: center;
-        gap: var(--ddd-spacing-8);
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: var(--ddd-spacing-8);
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-      .stat-item {
-        text-align: center;
-        color: var(--ddd-theme-default-white, #ffffff);
-      }
+    .stat-item {
+      text-align: center;
+      color: #ffffff;
+    }
 
-      .stat-value {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: var(--ddd-font-weight-bold);
-        color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-        display: block;
-        line-height: 1;
-      }
+    .stat-value {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--ddd-font-weight-bold);
+      color: #e2c044;
+      display: block;
+      line-height: 1;
+    }
 
-      .stat-label {
-        font-size: var(--ddd-font-size-s);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-top: var(--ddd-spacing-2);
-        color: rgba(255,255,255,0.75);
-      }
+    .stat-label {
+      font-size: var(--ddd-font-size-s);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: var(--ddd-spacing-2);
+      color: #ffffff;
+      opacity: 0.75;
+    }
 
-      .divider {
-        width: 1px;
-        background-color: rgba(255,255,255,0.2);
-        align-self: stretch;
-      }
+    .divider {
+      width: 1px;
+      background-color: #ffffff;
+      opacity: 0.2;
+      align-self: stretch;
+    }
 
-      @media (max-width: 600px) {
-        .divider { display: none; }
-        .stats-grid { gap: var(--ddd-spacing-6); }
-      }
-    `];
-  }
+    @media (max-width: 600px) {
+      .divider { display: none; }
+      .stats-grid { gap: var(--ddd-spacing-6); }
+    }
+  `];
+}
 
   render() {
     return html`

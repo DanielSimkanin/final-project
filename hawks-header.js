@@ -29,7 +29,7 @@ export class HawksHeader extends DDDSuper(LitElement) {
       :host {
         display: block;
         width: 100%;
-        background-color: var(--ddd-theme-default-navy, #001e44);
+        background-color: #001e44;
         color: var(--ddd-theme-default-keystoneYellow, #e2c044);
         font-family: var(--ddd-font-navigation);
       }
@@ -69,7 +69,7 @@ export class HawksHeader extends DDDSuper(LitElement) {
       }
 
       nav a {
-        color: var(--ddd-theme-default-white, #fff);
+        color: #fff;
         text-decoration: none;
         font-size: var(--ddd-font-size-s);
         font-weight: var(--ddd-font-weight-bold);
@@ -82,7 +82,7 @@ export class HawksHeader extends DDDSuper(LitElement) {
 
       nav a:hover {
         background-color: var(--ddd-theme-default-keystoneYellow, #e2c044);
-        color: var(--ddd-theme-default-navy, #001e44);
+        color: #001e44;
       }
 
       .menu-toggle {
@@ -99,12 +99,12 @@ export class HawksHeader extends DDDSuper(LitElement) {
       .mobile-menu {
         display: none;
         flex-direction: column;
-        background-color: var(--ddd-theme-default-navy, #001e44);
+        background-color: #001e44;
         padding: var(--ddd-spacing-2) var(--ddd-spacing-6);
       }
 
       .mobile-menu a {
-        color: var(--ddd-theme-default-white, #fff);
+        color: #fff;
         text-decoration: none;
         font-size: var(--ddd-font-size-s);
         font-weight: var(--ddd-font-weight-bold);

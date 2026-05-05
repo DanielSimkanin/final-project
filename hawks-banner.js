@@ -34,8 +34,8 @@ export class HawksBanner extends DDDSuper(LitElement) {
     }
 
     .banner {
-      background-color: var(--ddd-theme-default-navy);
-      color: var(--ddd-theme-default-white);
+      background-color: #001e44;
+      color: #ffffff;
       padding: var(--ddd-spacing-16) var(--ddd-spacing-6);
       text-align: center;
       position: relative;
@@ -64,7 +64,7 @@ export class HawksBanner extends DDDSuper(LitElement) {
       font-weight: var(--ddd-font-weight-bold);
       text-transform: uppercase;
       letter-spacing: 4px;
-      color: var(--ddd-theme-default-keystoneYellow);
+      color: #e2c044;
       margin: 0;
     }
 
@@ -75,16 +75,16 @@ export class HawksBanner extends DDDSuper(LitElement) {
       letter-spacing: 2px;
       margin: 0;
       line-height: 1.1;
-      color: var(--ddd-theme-default-white);
+      color: #ffffff;
     }
 
     .title span {
-      color: var(--ddd-theme-default-keystoneYellow);
+      color: #e2c044;
     }
 
     .tagline {
       font-size: var(--ddd-font-size-m);
-      color: var(--ddd-theme-default-white);
+      color: #ffffff;
       margin: 0;
       font-style: italic;
       opacity: 0.8;
@@ -99,8 +99,8 @@ export class HawksBanner extends DDDSuper(LitElement) {
     }
 
     .btn-primary {
-      background-color: var(--ddd-theme-default-keystoneYellow);
-      color: var(--ddd-theme-default-navy);
+      background-color: #e2c044;
+      color: #001e44;
       padding: var(--ddd-spacing-3) var(--ddd-spacing-8);
       border: none;
       border-radius: var(--ddd-radius-sm);
@@ -120,9 +120,9 @@ export class HawksBanner extends DDDSuper(LitElement) {
 
     .btn-secondary {
       background-color: transparent;
-      color: var(--ddd-theme-default-white);
+      color: #ffffff;
       padding: var(--ddd-spacing-3) var(--ddd-spacing-8);
-      border: var(--ddd-border-sm) solid var(--ddd-theme-default-white);
+      border: 2px solid #ffffff;
       border-radius: var(--ddd-radius-sm);
       font-size: var(--ddd-font-size-s);
       font-weight: var(--ddd-font-weight-bold);
@@ -135,14 +135,14 @@ export class HawksBanner extends DDDSuper(LitElement) {
     }
 
     .btn-secondary:hover {
-      border-color: var(--ddd-theme-default-keystoneYellow);
-      color: var(--ddd-theme-default-keystoneYellow);
+      border-color: #e2c044;
+      color: #e2c044;
     }
 
     .gold-divider {
       width: 80px;
       height: 4px;
-      background-color: var(--ddd-theme-default-keystoneYellow);
+      background-color: #e2c044;
       border-radius: var(--ddd-radius-xs);
     }
 
@@ -154,12 +154,6 @@ export class HawksBanner extends DDDSuper(LitElement) {
       .cta-buttons {
         flex-direction: column;
         align-items: center;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .banner {
-        background-color: var(--ddd-theme-default-navy);
       }
     }
   `];
