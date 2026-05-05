@@ -92,6 +92,32 @@ export class HawksFooter extends DDDSuper(LitElement) {
         font-size: var(--ddd-font-size-xs);
         opacity: 0.6;
       }
+
+      :host-context(body.dark) {
+        :host {
+          color: var(--ddd-theme-default-white, #ffffff);
+        }
+
+        .footer-brand p,
+        .footer-col ul li a,
+        .footer-bottom {
+          color: var(--ddd-theme-default-white, #ffffff);
+          opacity: 0.8;
+        }
+
+        .footer-col h4 {
+          color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+        }
+
+        .footer-col ul li a:hover {
+          color: var(--ddd-theme-default-keystoneYellow, #e2c044);
+          opacity: 1;
+        }
+
+        .footer-bottom {
+          opacity: 0.6;
+        }
+      }
     `];
   }
 
