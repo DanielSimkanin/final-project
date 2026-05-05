@@ -153,16 +153,16 @@ export class HawksNewsCard extends DDDSuper(LitElement) {
 
     @media (prefers-color-scheme: dark) {
       :host {
-        background-color: var(--ddd-theme-default-nittanyNavy);
+        background-color: var(--ddd-theme-default-white);
       }
       .section-header h2 {
-        color: var(--ddd-theme-default-white);
+        color: var(--ddd-theme-default-nittanyNavy);
       }
       .news-card {
         background-color: var(--ddd-theme-default-navy);
       }
       .card-title {
-        color: var(--ddd-theme-default-white);
+        color: var(--ddd-theme-default-nittanyNavy);
       }
     }
   `];

@@ -137,12 +137,14 @@ export class HawksTeamCard extends DDDSuper(LitElement) {
         color: var(--ddd-theme-default-white);
       }
       .player-card {
-        background-color: var(--ddd-theme-default-navy);
+        background-color: var(--ddd-theme-default-white);
       }
       .player-name {
-        color: var(--ddd-theme-default-white);
+        color: var(--ddd-theme-default-nittanyNavy)
       }
-    }
+     .player-position {
+        color: var(--ddd-theme-default-nittanyNavy);
+      }
   `];
 }
 

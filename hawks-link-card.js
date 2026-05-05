@@ -91,7 +91,7 @@ export class HawksLinkCard extends DDDSuper(LitElement) {
       .link-label {
         font-size: var(--ddd-font-size-m);
         font-weight: var(--ddd-font-weight-bold);
-        color: var(--ddd-theme-default-navy);
+        color: var(--ddd-theme-default-nittanyNavy);
         text-transform: uppercase;
         letter-spacing: 1px;
       }
@@ -103,10 +103,10 @@ export class HawksLinkCard extends DDDSuper(LitElement) {
 
       @media (prefers-color-scheme: dark) {
         .link-card {
-          background-color: var(--ddd-theme-default-nittanyNavy);
+          background-color: var(--ddd-theme-default-white);
         }
         .link-label {
-          color: var(--ddd-theme-default-white);
+          color: var(--ddd-theme-default-nittanyNavy);
         }
       }
     `];

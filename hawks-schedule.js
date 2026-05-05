@@ -156,16 +156,16 @@ export class HawksSchedule extends DDDSuper(LitElement) {
 
     @media (prefers-color-scheme: dark) {
       :host {
-        background-color: var(--ddd-theme-default-nittanyNavy);
+        background-color: var(--ddd-theme-default-white);
       }
       .section-header h2 {
-        color: var(--ddd-theme-default-white);
+        color: var(--ddd-theme-default-nittanyNavy);
       }
       .game-card {
         background-color: var(--ddd-theme-default-navy);
       }
       .game-opponent {
-        color: var(--ddd-theme-default-white);
+        color: var(--ddd-theme-default-nittanyNavy);
       }
     }
   `];

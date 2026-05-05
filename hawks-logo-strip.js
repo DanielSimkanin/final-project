@@ -94,10 +94,10 @@ export class HawksLogoStrip extends DDDSuper(LitElement) {
           color: var(--ddd-theme-default-white);
         }
         .sponsor-item {
-          background-color: var(--ddd-theme-default-navy);
+          background-color: var(--ddd-theme-default-white);
         }
         .sponsor-name {
-          color: var(--ddd-theme-default-white);
+          color: var(--ddd-theme-default-nittanyNavy);
         }
       }
     `];

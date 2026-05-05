@@ -16,7 +16,7 @@ export class HawksFooter extends DDDSuper(LitElement) {
         display: block;
         width: 100%;
         background-color: var(--ddd-theme-default-navy);
-        color: var(--ddd-theme-default-white);
+        color: #001e44;
         padding: var(--ddd-spacing-8) var(--ddd-spacing-6) var(--ddd-spacing-4);
         font-family: var(--ddd-font-navigation);
       }
@@ -44,7 +44,7 @@ export class HawksFooter extends DDDSuper(LitElement) {
 
       .footer-brand p {
         font-size: var(--ddd-font-size-xs);
-        color: var(--ddd-theme-default-white);
+        color: #001e44;
         opacity: 0.7;
         line-height: 1.6;
         margin: 0;
@@ -69,7 +69,7 @@ export class HawksFooter extends DDDSuper(LitElement) {
       }
 
       .footer-col ul li a {
-        color: var(--ddd-theme-default-white);
+        color: #001e44;
         text-decoration: none;
         font-size: var(--ddd-font-size-xs);
         opacity: 0.8;
